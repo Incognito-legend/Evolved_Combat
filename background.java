@@ -14,6 +14,8 @@ public class background extends World
     //GreenfootSound GameMusic = new GreenfootSound("Legend of Magvel - Main Game Music 2.wav");
     GreenfootSound Defend_Shield_Effect = new GreenfootSound("shine_fixed.wav");
     GreenfootSound HealMagic = new GreenfootSound("eclipse_fixed.wav");
+    GreenfootSound FireMagic = new GreenfootSound("fire fixed.wav");
+    GreenfootSound MissEffect = new GreenfootSound ("miss_fixed.wav");
     boolean turn = true;
     boolean hit = false;
     boolean miss = false;
@@ -61,10 +63,10 @@ public class background extends World
         super(600, 400, 1);
         
         addObject(new Player(), 100, 200);
-        addObject(new HP_Images(), 100, 300);
+        addObject(new HP_Images(), 150, 300);
         
         addObject(new Enemy(), 500, 200);
-        addObject(new enemy_HP_Images(), 500, 300);
+        addObject(new enemy_HP_Images(), 450, 300);
                 
         
         //addObject(new GuessingGameGUI(), 0, 0);

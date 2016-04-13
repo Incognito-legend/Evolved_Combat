@@ -43,7 +43,7 @@ public class Miss_Battle_Effect extends Actor
             if (Count_ == 1)
             
                 {
-                                    
+                    level.MissEffect.play();               
                     setImage(miss1);
                     
                     if (t_check)

@@ -23,6 +23,7 @@ public class Player extends Actor
     boolean df3 = false;
     boolean restart = false;
     boolean rC = false;
+    boolean numDF = true;
     int number;
     public void act() 
     
@@ -53,13 +54,13 @@ public class Player extends Actor
                                    
                  selection = javax.swing.JOptionPane.showInputDialog("1: Attack, 2: Defend, 3: Heal");
                  
-                 if (selection == "")
+                   if (selection == "")
                  
-                           {
+                   {
                                
-                               selection = null;
+                           selection = null;
                                
-                           }
+                   }
                    if (!(selection == null))
                    
                        {
@@ -67,10 +68,19 @@ public class Player extends Actor
                            if (!(selection == ""))
                            {
                                
-                               number = Integer.parseInt(selection);
+                               for (number = Integer.parseInt(selection); (selection == ""); number = 0)
+                                
+                               
+                               
                               
+                               
+                               //javax.lang.NumberFormatException.forInputString
+                               
+                               
                                if (number == 0)
+                               
                                {
+                                   
                                    lastKeyPressed = null;
                                    selection = javax.swing.JOptionPane.showInputDialog("1: Attack, 2: Defend, 3: Heal");
                                    
@@ -102,7 +112,7 @@ public class Player extends Actor
                                    
                                    level.addObject(new DAS_Images(), 100, 200);
                                    
-                                   delay(1);
+                                   //delay(1);
                                    
                                    level.turn = false;
                                    
@@ -126,7 +136,7 @@ public class Player extends Actor
                                    
                                    level.addObject(new Heal_Images(), 100, 200);                                                                     
                                    
-                                   delay(1);
+                                   //delay(1);
                                    
                                    level.turn = false;
                                    
@@ -151,9 +161,7 @@ public class Player extends Actor
                     {
                         
                         selection = javax.swing.JOptionPane.showInputDialog("1: Attack, 2: Defend, 3: Heal");
-                        
-                        number = Integer.parseInt(selection);
-                        
+                                                                       
                     }
                    
                }    

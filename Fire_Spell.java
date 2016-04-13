@@ -40,7 +40,7 @@ public class Fire_Spell extends Actor
     {
         
         background level = (background)this.getWorld();
-        
+        level.FireMagic.play(); 
         if (counter == 1)
         
         {
