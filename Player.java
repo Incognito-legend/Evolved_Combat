@@ -11,7 +11,10 @@ public class Player extends Actor
 {
     GreenfootImage player = new GreenfootImage("Player_pallette_outline.png");
     String input;
-     String selection;
+    String selection;
+    
+    String lastKeyPressed;
+    
     int Height = 16;
     int Width = 16;
     int count_ = 0;
@@ -51,10 +54,14 @@ public class Player extends Actor
                  selection = javax.swing.JOptionPane.showInputDialog("1: Attack, 2: Defend, 3: Heal");
                  
                  if (selection == "")
+                 
                            {
+                               
                                selection = null;
+                               
                            }
                    if (!(selection == null))
+                   
                        {
                            
                            if (!(selection == ""))
@@ -64,59 +71,89 @@ public class Player extends Actor
                               
                                if (number == 0)
                                {
-                                   
+                                   lastKeyPressed = null;
                                    selection = javax.swing.JOptionPane.showInputDialog("1: Attack, 2: Defend, 3: Heal");
                                    
                                }
+                               
                                if (number == 1)
+                               
                                {
                                    
-                                   //System.out.println("Casting Fire Spell...");
+                                   lastKeyPressed = "1";
+                                   
+                                   System.out.println("Casting Fire Spell...");
+                                   
                                    df2 = true;
+                                   
                                }
+                               
                                if (number == 2)
+                               
                                {
                                    
-                                   System.out.println("Defending...");
-                                   //level.playerDEF = level.playerDEF + 1;
+                                   lastKeyPressed = "2";
+                                   
+                                   System.out.println("Defending...");                                                                      
+                                   
                                    level.Defend_Shield_Effect.play();
-                                   level.addObject(new Heal_Images(), 100, 200);
+                                   
+                                   level.p_defend = true;
+                                   
+                                   level.addObject(new DAS_Images(), 100, 200);
                                    
                                    delay(1);
+                                   
                                    level.turn = false;
+                                   
                                }
+                               
                                if (number == 3)
+                               
                                {
                                    
-                                   //System.out.println("Casting Healing Spell...");
+                                   lastKeyPressed = "3";
+                                   
+                                   System.out.println("Casting Healing Spell...");
+                                   
                                    level.playerHP = level.playerHP + level.playerMAG;
+                                   
                                    System.out.println("p_HP = " + level.playerHP);
-                                   //if (level.getRandomNumberRange(1,100) >= 90)
-                                   //{
-                                   //    
-                                   //    level.enemyHP = level.enemyHP + level.enemyMAG;
-                                   //    System.out.println("e_HP = " + level.enemyHP);
-                                   //}
-
+                                   
                                    level.HealMagic.play();
-                                   level.addObject(new Heal_Images(), 100, 200);
+                                   
+                                   level.p_heal = true;
+                                   
+                                   level.addObject(new Heal_Images(), 100, 200);                                                                     
                                    
                                    delay(1);
+                                   
                                    level.turn = false;
+                                   
                                }
+                               
                            } 
+                           
                            else if (selection == "")
+                           
                            {
+                               
                                selection = javax.swing.JOptionPane.showInputDialog("1: Attack, 2: Defend, 3: Heal");
+                               
                             }
                            
                        
                        
                     }
+                    
                     else if (selection == null)
+                    
                     {
+                        
                         selection = javax.swing.JOptionPane.showInputDialog("1: Attack, 2: Defend, 3: Heal");
+                        
                         number = Integer.parseInt(selection);
+                        
                     }
                    
                }    
@@ -124,9 +161,11 @@ public class Player extends Actor
                if (df2)
                
                {
+                   
                        if (count_ == 10000)
                         
                        {
+                           
                             if (rN > 45)
                             
                             {                
@@ -152,6 +191,7 @@ public class Player extends Actor
                             }
                             
                        } 
+                       count_ = (count_ + 1) % 10001; 
                   
                } 
                
@@ -165,7 +205,7 @@ public class Player extends Actor
             df2 = false;
             
         }        
-        count_ = (count_ + 1) % 10001; 
+        
       } 
       
      public static void delay(int time)

@@ -258,7 +258,7 @@ public class HP_Gauge extends Actor
                     {
                         dmg(24);
                     }
-                    else if ((level.playerHP == 25) || (level.playerHP == 60))
+                    else if ((level.playerHP == 25) || (level.playerHP == 30))
                     {
                         dmg(25);
                     }     

@@ -260,7 +260,7 @@ public class enemy_HP extends Actor
                     {
                         dmg(24);
                     }
-                    else if ((level.enemyHP == 25) || (level.enemyHP == 60))
+                    else if ((level.enemyHP == 25) || (level.enemyHP == 30))
                     {
                         dmg(25);
                     }     
@@ -269,10 +269,13 @@ public class enemy_HP extends Actor
    }    
    public int dmg(int counter_)
    {
+       background level = (background)this.getWorld();
        if (counter_ == 0)
                     {
                         setImage(HP_0);
                         System.out.println("enemy_HP: HP_0.png setImage Check");
+                        level.enemyHP = 30;
+                        counter_ = 25;
                     }
                     else if (counter_ == 1)
                     {

@@ -54,11 +54,12 @@ public class Enemy extends Actor
                     level.hit = true;  
                                
                     
+                    
                     df2 = true;
                     
                 }
                 
-                else if ((rN <= 75) && (rN > 35))
+                else if (rN <= 75)
                 
                 {
                     
@@ -66,34 +67,35 @@ public class Enemy extends Actor
                     
                     level.miss = true;
                                   
-                    level.fssp = true;
-                    
-                    df2 = true;
-                    
-                }
-                
-                else if ((rN <= 35) && (rN > 20))
-                
-                {
-                    
-                    level.defend = true;
-                    
-                    level.fssp = true;
-                    
-                    df2 = true;
-                    
-                }
-                
-                else if ((rN <= 20) && (rN >= 1))
-                
-                {
-                    
-                    level.heal = true;
                     
                     
                     df2 = true;
                     
                 }
+                
+                        //                 else if ((rN <= 35) && (rN > 20))
+                        //                 
+                        //                 {
+                        //                     
+                        //                     level.defend = true;
+                        //                     
+                        //                     level.fssp = true;
+                        //                     
+                        //                     df2 = true;
+                        //                     
+                        //                 }
+                        //                 
+                        //                 else if ((rN <= 20) && (rN >= 1))
+                        //                 
+                        //                 {
+                        //                     
+                        //                     level.heal = true;
+                        //                     
+                        //                     level.fssp = true;
+                        //                     
+                        //                     df2 = true;
+                        //                     
+                        //                 }
                 
               } 
               
