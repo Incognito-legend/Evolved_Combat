@@ -45,7 +45,7 @@ public class Enemy extends Actor
         
               {         
                   
-                if (rN > 75)
+                if (rN > 25)
                 
                 {                
                     
@@ -59,7 +59,7 @@ public class Enemy extends Actor
                     
                 }
                 
-                else if (rN <= 75)
+                else if (rN <= 25)
                 
                 {
                     

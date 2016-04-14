@@ -246,7 +246,7 @@ public class Dark_Anima_Shield extends Actor
                          
                     }
                                                             
-                    if (imageAnimationCounter == 5000)
+                    if (imageAnimationCounter == 10000)
                     
                     {
                         
@@ -254,7 +254,7 @@ public class Dark_Anima_Shield extends Actor
                         
                     }
                     
-                imageAnimationCounter = (imageAnimationCounter + 1) % 5001;
+                imageAnimationCounter = (imageAnimationCounter + 1) % 10001;
                 
             }
             

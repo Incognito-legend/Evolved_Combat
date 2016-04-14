@@ -21,9 +21,15 @@ public class background extends World
     boolean miss = false;
     boolean fssp = false;
     
+    boolean playerAttackAnimation = false;
+    
+    int mana = 100;
+    boolean healingCooldown_DF = false;
+    
     boolean p_heal = false;
     boolean e_heal = false;
     
+    boolean dfCheck = false;
     
     boolean p_defend = false;
     boolean p_defendCheck = false;
@@ -63,6 +69,7 @@ public class background extends World
         super(600, 400, 1);
         
         addObject(new Player(), 100, 200);
+        addObject(new pap_images(), 100, 200);
         addObject(new HP_Images(), 150, 300);
         
         addObject(new Enemy(), 500, 200);
@@ -96,6 +103,12 @@ public class background extends World
             enemyHP = 5;
             System.out.println("Admin.Cheats.Activated");
             adminCheatsCheck = true;
+        }
+        if (playerAttackAnimation)
+        {
+            
+            
+            
         }
         
                 //         if (!(musicPlayCheck))
@@ -177,21 +190,21 @@ public class background extends World
                                 
                                 {
                                     
-                                    if (count_II == 10000)
-                                    
+                                    if (dfCheck)
                                     {
                                         
-                                        wins = wins + 1;
+                                        if (count_II == 10000)
                                         
-                                        enemyHP = 0;
-                                        
-                                        playerHP = 30;
-                                        
-                                        enemyHP = 30;
-                                        
-                                    }
+                                        {
+                                            
+                                            wins = wins + 1;                                            
+                                            
+                                            
+                                            dfCheck = false;
+                                        }
                                     
-                                    count_II = (count_II + 1) % 10001;
+                                        count_II = (count_II + 1) % 10001;
+                                    }
                                     
                                 }
                                 

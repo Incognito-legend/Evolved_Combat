@@ -38,6 +38,8 @@ public class enemy_HP extends Actor
 
     int imageAnimationCounter = 0;
     int counter = 0;
+    int counter_II = 0;
+    
     public void act() 
     {
         
@@ -151,18 +153,55 @@ public class enemy_HP extends Actor
                         df = true;
                     }                
                     
-                    if (imageAnimationCounter == 1000)
+                    if (imageAnimationCounter == 10000)
                     {
                     counter = counter + 1;    
                     }
-                imageAnimationCounter = (imageAnimationCounter + 1) % 1001;
+                imageAnimationCounter = (imageAnimationCounter + 1) % 10001;
             }
             
             if (df)
+            
             {
-                if ((level.enemyHP <= 0) || (level.enemyHP == 0))
+                if (level.dfCheck)
+                
                     {
+                      
+                        if (level.enemyHP < 30)
+                                {
+                                    
+                                 if (counter_II == 20000)
+                            {   
+                                    
+                                
+                                
+                            
+                                
+                                dmg(level.enemyHP = level.enemyHP + 1);
+                                
+                                
+                                
+                                counter_II = 0;
+                                
+                            
+                            
+                            }
+                    
+                        counter_II = (counter_II + 1) % 20001;
+                    }
+                    else if ((level.enemyHP >= 30) && (level.playerHP >= 30))
+                    {
+                        dmg(25);
+                        level.dfCheck = false;
+                    }
+                    
+                }
+               if ((level.enemyHP <= 0) || (level.enemyHP == 0))
+                
+                    {
+                        
                         dmg(0);
+                        
                     }
                     else if (level.enemyHP == 1)
                     {
@@ -260,7 +299,7 @@ public class enemy_HP extends Actor
                     {
                         dmg(24);
                     }
-                    else if ((level.enemyHP == 25) || (level.enemyHP == 30))
+                    else if ((level.enemyHP == 25) || (level.enemyHP >= 30))
                     {
                         dmg(25);
                     }     
@@ -273,9 +312,10 @@ public class enemy_HP extends Actor
        if (counter_ == 0)
                     {
                         setImage(HP_0);
-                        System.out.println("enemy_HP: HP_0.png setImage Check");
-                        level.enemyHP = 30;
-                        counter_ = 25;
+                        if (!(level.dfCheck))
+                        {
+                            level.dfCheck = true;
+                        }
                     }
                     else if (counter_ == 1)
                     {

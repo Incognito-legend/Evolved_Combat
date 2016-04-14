@@ -1,8 +1,9 @@
 #BlueJ class context
-comment0.params=
-comment0.target=void\ act()
+comment0.target=Fireball
 comment1.params=
-comment1.target=int\ getX()
+comment1.target=void\ act()
 comment2.params=
-comment2.target=int\ getY()
-numComments=3
+comment2.target=int\ getX()
+comment3.params=
+comment3.target=int\ getY()
+numComments=4

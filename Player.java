@@ -109,7 +109,7 @@ public class Player extends Actor
                                    level.Defend_Shield_Effect.play();
                                    
                                    level.p_defend = true;
-                                   
+                                    
                                    level.addObject(new DAS_Images(), 100, 200);
                                    
                                    //delay(1);
@@ -118,30 +118,52 @@ public class Player extends Actor
                                    
                                }
                                
-                               if (number == 3)
-                               
-                               {
+                                   if (number == 3)
                                    
-                                   lastKeyPressed = "3";
-                                   
-                                   System.out.println("Casting Healing Spell...");
-                                   
-                                   level.playerHP = level.playerHP + level.playerMAG;
-                                   
-                                   System.out.println("p_HP = " + level.playerHP);
-                                   
-                                   level.HealMagic.play();
-                                   
-                                   level.p_heal = true;
-                                   
-                                   level.addObject(new Heal_Images(), 100, 200);                                                                     
-                                   
-                                   //delay(1);
-                                   
-                                   level.turn = false;
-                                   
-                               }
-                               
+                                       
+                                       {
+                                           
+                                           if  (level.mana > 0)
+                                           {
+                                               
+                                                   
+                                                   lastKeyPressed = "3";
+                                                   
+                                                   System.out.println("Casting Healing Spell...");
+                                                  
+                                                   level.playerHP = level.playerHP + level.playerMAG;
+                                                   
+                                                   if (level.playerHP > 30)
+                                                   {
+                                                       level.playerHP = 30;    
+                                                   }
+                                                  System.out.println("p_HP = " + level.playerHP);
+                                                   
+                                                   level.HealMagic.play();
+                                                   
+                                                   level.p_heal = true;
+                                                   
+                                                   level.addObject(new Heal_Images(), 100, 200);                                                                     
+                                                   
+                                                   //delay(1);
+                                                   
+                                                   level.mana = level.mana - 10;
+                                                   System.out.println("Mana: " + level.mana);                                       
+                                                   
+                                                   
+                                                   level.turn = false;
+                                                   
+                                          }
+                                          
+                                          else if (level.mana <= 0)
+                                          
+                                          {
+                                              
+                                              selection = javax.swing.JOptionPane.showInputDialog("1: Attack (out of mana), 2: Defend (absorb enemy spell damage for mana), 3: Heal (out of mana)");
+                                              
+                                          }
+                                  
+                                }
                            } 
                            
                            else if (selection == "")
@@ -173,7 +195,7 @@ public class Player extends Actor
                        if (count_ == 10000)
                         
                        {
-                           
+                            level.playerAttackAnimation = true;
                             if (rN > 45)
                             
                             {                

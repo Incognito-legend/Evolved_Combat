@@ -38,6 +38,7 @@ public class HP_Gauge extends Actor
 
     int imageAnimationCounter = 0;
     int counter = 0;
+    int counter_II = 0;
     public void act() 
     {
             background level = (background)this.getWorld();
@@ -150,122 +151,155 @@ public class HP_Gauge extends Actor
                         df = true;
                     }                
                     
-                    if (imageAnimationCounter == 1000)
+                    if (imageAnimationCounter == 10000)
                     {
                     counter = counter + 1;    
                     }
-                imageAnimationCounter = (imageAnimationCounter + 1) % 1001;
+                imageAnimationCounter = (imageAnimationCounter + 1) % 10001;
             }
              if (df)
             {
+                if (level.dfCheck)
+                
+                    {
+                      
+                        if (level.playerHP < 30)
+                                {
+                                    
+                                 if (counter_II == 20000)
+                            {   
+                                    
+                                
+                                
+                            
+                                
+                                dmg_(level.playerHP = level.playerHP + 1);
+                                
+                                
+                                
+                                counter_II = 0;
+                                
+                            
+                            
+                            }
+                    
+                        counter_II = (counter_II + 1) % 20001;
+                    }
+                    else if ((level.playerHP >= 30) && (level.enemyHP >= 30))
+                    {
+                        dmg_(25);
+                        level.dfCheck = false;
+                    }
+                    
+                }
                 if (level.playerHP <= 0)
                     {
-                        dmg(0);
+                        dmg_(0);
                     }
                     else if (level.playerHP == 1)
                     {
-                        dmg(1);
+                        dmg_(1);
                     }
                     else if (level.playerHP == 2)
                     {
-                        dmg(2);
+                        dmg_(2);
                     }
                     else if (level.playerHP == 3)
                     {
-                        dmg(3);    
+                        dmg_(3);    
                     }
                     else if (level.playerHP == 4)
                     {
-                        dmg(4);
+                        dmg_(4);
                     }
                     else if (level.playerHP == 5)
                     {
-                        dmg(5);
+                        dmg_(5);
                     }
                     else if (level.playerHP == 6)
                     {
-                        dmg(6);    
+                        dmg_(6);    
                     }
                     else if (level.playerHP == 7)
                     {
-                        dmg(7);
+                        dmg_(7);
                     }
                     else if (level.playerHP == 8)
                     {
-                        dmg(8);
+                        dmg_(8);
                     }
                     else if (level.playerHP == 9)
                     {
-                        dmg(9);    
+                        dmg_(9);    
                     }
                     else if (level.playerHP == 10)
                     {
-                        dmg(10);    
+                        dmg_(10);    
                     }
                     else if (level.playerHP == 11)
                     {
-                        dmg(11);
+                        dmg_(11);
                     }
                     else if (level.playerHP == 12)
                     {
-                        dmg(12);
+                        dmg_(12);
                     }
                     else if (level.playerHP == 13)
                     {
-                        dmg(13);    
+                        dmg_(13);    
                     }
                     else if (level.playerHP == 14)
                     {
-                        dmg(14);
+                        dmg_(14);
                     }
                     else if (level.playerHP == 15)
                     {
-                        dmg(15);
+                        dmg_(15);
                     }
                     else if (level.playerHP == 16)
                     {
-                        dmg(16);    
+                        dmg_(16);    
                     }
                     else if (level.playerHP == 17)
                     {
-                        dmg(17);
+                        dmg_(17);
                     }
                     else if (level.playerHP == 18)
                     {
-                        dmg(18);
+                        dmg_(18);
                     }
                     else if (level.playerHP == 19)
                     {
-                        dmg(19);    
+                        dmg_(19);    
                     }
                     else if (level.playerHP == 20)
                     {
-                        dmg(20);    
+                        dmg_(20);    
                     }
                     else if (level.playerHP == 21)
                     {
-                        dmg(21);
+                        dmg_(21);
                     }
                     else if (level.playerHP == 22)
                     {
-                        dmg(22);
+                        dmg_(22);
                     }
                     else if (level.playerHP == 23)
                     {
-                        dmg(23);    
+                        dmg_(23);    
                     }
                     else if (level.playerHP == 24)
                     {
-                        dmg(24);
+                        dmg_(24);
                     }
-                    else if ((level.playerHP == 25) || (level.playerHP == 30))
+                    else if ((level.playerHP == 25) || (level.playerHP >= 30))
                     {
-                        dmg(25);
+                        dmg_(25);
                     }     
                 
             }
    }    
-   public int dmg(int counter_)
+   public int dmg_(int counter_)
    {
        if (counter_ ==0)
                     {
